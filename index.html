@@ -202,6 +202,8 @@ document.getElementById("result").innerHTML="Твой результат: "+scor
 
 <p id="result"></p>
 
+<button onclick="restartTest()">Пройти снова</button>
+
 </div>
 
 </div>
@@ -243,10 +245,22 @@ document.getElementById("result").innerText =
 document.getElementById("result").style.opacity = "1";
 }
 
+<script>
+
+  function restartTest(){
+
+let answers = document.querySelectorAll('input[type="radio"]');
+
+answers.forEach(answer => {
+answer.checked = false;
+});
+
+document.getElementById("result").innerText = "";
+document.getElementById("result").style.opacity = "0";
+
+}
+
 </script>
-
-
-
 
 
 
