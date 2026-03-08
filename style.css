@@ -1,3 +1,9 @@
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
+color:white;
+}
 img:hover{
 transform:scale(1.03);
 box-shadow:0 10px 25px rgba(0,0,0,0.2);
@@ -11,4 +17,19 @@ color:white;
 text-align:center;
 font-size:14px;
 border-top:2px solid #1e293b;
+}
+button{
+background:#3b82f6;
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#2563eb;
+transform:scale(1.05);
 }
