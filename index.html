@@ -212,6 +212,42 @@ document.getElementById("result").innerHTML="Твой результат: "+scor
 <p>2026</p>
 </footer>
   
+<script>
+function checkTest(){
+
+let score = 0;
+
+let q1 = document.querySelector('input[name="q1"]:checked');
+let q2 = document.querySelector('input[name="q2"]:checked');
+let q3 = document.querySelector('input[name="q3"]:checked');
+
+if(q1 && q1.value == "no") score++;
+if(q2 && q2.value == "official") score++;
+if(q3 && q3.value == "block") score++;
+
+let message = "";
+
+if(score == 3){
+message = "Отлично! Ты хорошо знаешь правила кибербезопасности.";
+}
+else if(score == 2){
+message = "Неплохо, но можно узнать больше.";
+}
+else{
+message = "Стоит повторить правила кибербезопасности.";
+}
+
+document.getElementById("result").innerHTML =
+"Твой результат: " + score + "/3
+" + message;
+
+}
+</script>
+
+
+
+
+
 
 
 </body>
