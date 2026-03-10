@@ -215,7 +215,18 @@ document.getElementById("result").innerHTML="Твой результат: "+scor
   
 <script>
 function checkTest(){
+  
+function openImage(img){
+let modal = document.getElementById("imageModal");
+let modalImg = document.getElementById("modalImg");
 
+modal.style.display = "block";
+modalImg.src = img.src;
+}
+
+function closeImage(){
+document.getElementById("imageModal").style.display = "none";
+}
 
 let score = 0;
 
@@ -247,7 +258,10 @@ document.getElementById("result").style.opacity = "1";
 
 
 </script>
-
+  
+<div id="imageModal" class="modal" onclick="closeImage()">
+<img class="modal-content" id="modalImg">
+</div>
 
 </body>
 </html>
