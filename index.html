@@ -215,6 +215,16 @@ document.getElementById("result").innerHTML="Твой результат: "+scor
   
 <script>
 function checkTest(){
+  
+function openImage(img){
+document.getElementById("imageViewer").style.display = "flex";
+document.getElementById("fullImage").src = img.src;
+}
+
+function closeImage(){
+document.getElementById("imageViewer").style.display = "none";
+}
+  </script>
 
 let score = 0;
 
@@ -247,11 +257,9 @@ document.getElementById("result").style.opacity = "1";
 
 </script>
 
-
-
-
-
-
+<div id="imageViewer" onclick="closeImage()">
+<img id="fullImage">
+</div>
 
 </body>
 </html>
