@@ -1,253 +1,192 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyberSafe — Кибербезопасность</title>
-
+<link rel="stylesheet" href="style.css">
 <style>
-img{
-display:block;
-margin:40px auto;
-max-width:90%;
-border-radius:10px;
-transition:transform 0.3s, box-shadow 0.3s;
-}
-
-img:hover{
-transform:scale(1.03);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-button{
-background:#3b82f6;
-color:white;
-border:none;
-padding:10px 18px;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#2563eb;
-transform:scale(1.05);
-}
-  
+html{scroll-behavior:smooth;}
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#0f172a;
-color:white;
-line-height:1.6;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
+  color:white;
 }
-
-header{
-padding:80px 20px;
-text-align:center;
-background:linear-gradient(120deg,#2563eb,#22c55e);
+img{
+  display:block;
+  margin:40px auto;
+  max-width:90%;
+  border-radius:10px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
-header h1{font-size:48px;margin:0;}
-
-nav{
-position:sticky;
-top:0;
-background:#020617;
-padding:12px;
-text-align:center;
+img:hover{
+  transform:scale(1.03);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
-
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:50px 20px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-box-shadow:0 10px 20px rgba(0,0,0,0.4);
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-margin-top:10px;
-}
-
-.quiz{
-background:#1e293b;
-padding:30px;
-border-radius:12px;
-margin-top:40px;
-}
-
 button{
-padding:12px 25px;
-border:none;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-margin-top:15px;
+  background:#3b82f6;
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
 }
-
+button:hover{
+  background:#2563eb;
+  transform:scale(1.05);
+}
+#result{
+  margin-top:20px;
+  font-size:20px;
+  font-weight:bold;
+  opacity:0;
+  transition:0.5s;
+}
 footer{
-text-align:center;
-padding:30px;
-background:#020617;
-margin-top:60px;
+  margin-top:60px;
+  padding:30px;
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  font-size:14px;
+  border-top:2px solid #1e293b;
+}
+/* просмотр картинки */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+}
+.modal-content{
+  display:block;
+  margin:auto;
+  margin-top:60px;
+  max-width:90%;
+  max-height:90%;
 }
 </style>
-
 </head>
-
 <body>
 
 <header>
-<h1>CyberSafe</h1>
-<p>Памятка по кибербезопасности для школьников</p>
+  <h1>CyberSafe</h1>
+  <p>Памятка по кибербезопасности для школьников</p>
 </header>
 
 <nav>
-<a href="#rules">Правила</a>
-<a href="#guide">Гайд</a>
-<a href="#quiz">Тест</a>
+  <a href="#rules">Правила</a>
+  <a href="#guide">Гайд</a>
+  <a href="#quiz">Тест</a>
 </nav>
 
 <div class="container">
 
-<h2 id="rules">Основные правила безопасности</h2>
+  <h2 id="rules">Основные правила безопасности</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Личные данные</h3>
+      <p>Не публикуй адрес, телефон или документы в интернете.</p>
+    </div>
+    <div class="card">
+      <h3>Пароли</h3>
+      <p>Используй длинные и сложные пароли и не передавай их другим.</p>
+    </div>
+    <div class="card">
+      <h3>Подозрительные ссылки</h3>
+      <p>Не переходи по ссылкам от незнакомцев.</p>
+    </div>
+    <div class="card">
+      <h3>Защита устройств</h3>
+      <p>Обновляй систему и используй антивирус.</p>
+    </div>
+  </div>
 
-<div class="cards">
+  <h2 id="guide">Мини‑гайд</h2>
+  <div class="cards">
+    <div class="card"><img src="image1.jpg" alt="Guide 1" onclick="openImage(this)"></div>
+    <div class="card"><img src="image2.jpg" alt="Guide 2" onclick="openImage(this)"></div>
+    <div class="card"><img src="image3.jpg" alt="Guide 3" onclick="openImage(this)"></div>
+    <div class="card"><img src="images/guide_4.png" alt="Guide 4" onclick="openImage(this)"></div>
+    <div class="card"><img src="images/guide_5.png" alt="Guide 5" onclick="openImage(this)"></div>
+    <div class="card"><img src="images/guide_6.png" alt="Guide 6" onclick="openImage(this)"></div>
+    <div class="card"><img src="images/guide_7.png" alt="Guide 7" onclick="openImage(this)"></div>
+    <div class="card"><img src="images/guide_8.png" alt="Guide 8" onclick="openImage(this)"></div>
+  </div>
 
-<div class="card">
-<h3>Личные данные</h3>
-<p>Не публикуй адрес, телефон или документы в интернете.</p>
-</div>
+  <div class="quiz" id="quiz">
+    <h2>Мини тест по кибербезопасности</h2>
+    <p>1. Можно ли отправлять пароль другу?</p>
+    <label><input type="radio" name="q1" value="no"> Нет</label><br>
+    <label><input type="radio" name="q1" value="b"> Да</label>
 
-<div class="card">
-<h3>Пароли</h3>
-<p>Используй длинные и сложные пароли и не передавай их другим.</p>
-</div>
+    <p>2. Где безопаснее скачивать приложения?</p>
+    <label><input type="radio" name="q2" value="a"> Любой сайт</label><br>
+    <label><input type="radio" name="q2" value="official"> Официальный магазин</label>
 
-<div class="card">
-<h3>Подозрительные ссылки</h3>
-<p>Не переходи по ссылкам от незнакомцев.</p>
-</div>
+    <p>3. Что делать при кибербуллинге?</p>
+    <label><input type="radio" name="q3" value="a"> Ответить агрессией</label><br>
+    <label><input type="radio" name="q3" value="b"> Игнорировать</label><br>
+    <label><input type="radio" name="q3" value="block"> Заблокировать и сообщить взрослым</label>
 
-<div class="card">
-<h3>Защита устройств</h3>
-<p>Обновляй систему и используй антивирус.</p>
-</div>
-
-</div>
-
-<h2 id="guide">Мини-гайд</h2>
-
-<div class="cards">
-<div class="card"><img src="image1.jpg" onclick="openImage(this)"></div>
-<div class="card"><img src="image2.jpg" onclick="openImage(this)"></div>
-<div class="card"><img src="image3.jpg" onclick="openImage(this)"></div>
-<div class="card"><img src="images/guide_4.png" onclick="openImage(this)"></div>
-<div class="card"><img src="images/guide_5.png" onclick="openImage(this)"></div>
-<div class="card"><img src="images/guide_6.png" onclick="openImage(this)"></div>
-<div class="card"><img src="images/guide_7.png" onclick="openImage(this)"></div>
-<div class="card"><img src="images/guide_8.png" onclick="openImage(this)"></div>
-</div>
-
-<div class="quiz" id="quiz">
-
-<h2>Мини тест по кибербезопасности</h2>
-
-<p>1. Можно ли отправлять пароль другу?</p>
-<label><input type="radio" name="q1" value="no"> Нет</label><br>
-<label><input type="radio" name="q1" value="b"> Да</label>
-
-<p>2. Где безопаснее скачивать приложения?</p>
-<label><input type="radio" name="q2" value="a"> Любой сайт</label><br>
-<label><input type="radio" name="q2" value="official"> Официальный магазин</label>
-
-<p>3. Что делать при кибербуллинге?</p>
-<label><input type="radio" name="q3" value="a"> Ответить агрессией</label><br>
-<label><input type="radio" name="q3" value="b"> Игнорировать</label><br>
-<label><input type="radio" name="q3" value="block"> Заблокировать и сообщить взрослым</label>
-
-<br>
-<button onclick="checkTest()">Проверить</button>
-
-<p id="result"></p>
+    <br>
+    <button onclick="checkTest()">Проверить</button>
+    <p id="result"></p>
+  </div>
 
 </div>
 
-</div>
-  
 <footer>
-<p>Проект по обществознанию</p>
-<p>Тема: Киберугрозы в интернете</p>
-<p>2026</p>
+  <p>Проект по обществознанию</p>
+  <p>Тема: Киберугрозы в интернете</p>
+  <p>2026</p>
 </footer>
+
+<!-- Модалка -->
+<div id="imageModal" class="modal" onclick="closeImage()">
+  <img class="modal-content" id="modalImg">
+</div>
 
 <script>
 function openImage(img){
-let modal = document.getElementById("imageModal");
-let modalImg = document.getElementById("modalImg");
-
-modal.style.display = "block";
-modalImg.src = img.src;
+  let modal = document.getElementById("imageModal");
+  let modalImg = document.getElementById("modalImg");
+  modal.style.display = "block";
+  modalImg.src = img.src;
 }
 
 function closeImage(){
-document.getElementById("imageModal").style.display = "none";
+  document.getElementById("imageModal").style.display = "none";
 }
 
 function checkTest(){
-let score = 0;
+  let score = 0;
 
-let q1 = document.querySelector('input[name="q1"]:checked');
-let q2 = document.querySelector('input[name="q2"]:checked');
-let q3 = document.querySelector('input[name="q3"]:checked');
+  let q1 = document.querySelector('input[name="q1"]:checked');
+  let q2 = document.querySelector('input[name="q2"]:checked');
+  let q3 = document.querySelector('input[name="q3"]:checked');
 
-if(q1 && q1.value == "no") score++;
-if(q2 && q2.value == "official") score++;
-if(q3 && q3.value == "block") score++;
+  if(q1 && q1.value=="no") score++;
+  if(q2 && q2.value=="official") score++;
+  if(q3 && q3.value=="block") score++;
 
-let message = "";
+  let message = "";
+  if(score==3) message = "Отлично! Ты хорошо знаешь правила кибербезопасности.";
+  else if(score==2) message = "Неплохо, но можно узнать больше.";
+  else message = "Стоит повторить правила кибербезопасности.";
 
-if(score == 3){
-message = "Отлично! Ты хорошо знаешь правила кибербезопасности.";
-}
-else if(score == 2){
-message = "Неплохо, но можно узнать больше.";
-}
-else{
-message = "Стоит повторить правила кибербезопасности.";
-}
-
-document.getElementById("result").innerText =
-"Твой результат: " + score + "/3. " + message;
+  let result = document.getElementById("result");
+  result.innerText = "Твой результат: " + score + "/3. " + message;
+  result.style.opacity = "1";
 }
 </script>
-  
-<div id="imageModal" class="modal" onclick="closeImage()">
-<img class="modal-content" id="modalImg">
-</div>
 
 </body>
 </html>
