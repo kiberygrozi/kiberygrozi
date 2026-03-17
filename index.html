@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,7 +7,6 @@
 <title>CyberSafe — Кибербезопасность</title>
 
 <style>
-  
 img{
 display:block;
 margin:40px auto;
@@ -21,7 +19,7 @@ img:hover{
 transform:scale(1.03);
 box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
-/* кнопка теста */
+
 button{
 background:#3b82f6;
 color:white;
@@ -116,20 +114,7 @@ padding:30px;
 background:#020617;
 margin-top:60px;
 }
-
 </style>
-
-<script>
-function checkQuiz(){
-let score=0
-
-if(document.querySelector('input[name=q1]:checked')?.value=="a") score++
-if(document.querySelector('input[name=q2]:checked')?.value=="b") score++
-if(document.querySelector('input[name=q3]:checked')?.value=="c") score++
-
-document.getElementById("result").innerHTML="Твой результат: "+score+"/3"
-}
-</script>
 
 </head>
 
@@ -174,10 +159,17 @@ document.getElementById("result").innerHTML="Твой результат: "+scor
 
 </div>
 
-<h2 id="guide">Мини‑гайд</h2>
+<h2 id="guide">Мини-гайд</h2>
 
 <div class="cards">
-<div class="card">img src="image1.jpg" onclick="openImage(this)"></div><div class="card"><img src=img src="image2.jpg" onclick="openImage(this)"></div><div class="card"><img src=img src="image3.jpg" onclick="openImage(this)"></div><div class="card"><img src="images/guide_4.png"></div><div class="card"><img src="images/guide_5.png"></div><div class="card"><img src="images/guide_6.png"></div><div class="card"><img src="images/guide_7.png"></div><div class="card"><img src="images/guide_8.png"></div>
+<div class="card"><img src="image1.jpg" onclick="openImage(this)"></div>
+<div class="card"><img src="image2.jpg" onclick="openImage(this)"></div>
+<div class="card"><img src="image3.jpg" onclick="openImage(this)"></div>
+<div class="card"><img src="images/guide_4.png" onclick="openImage(this)"></div>
+<div class="card"><img src="images/guide_5.png" onclick="openImage(this)"></div>
+<div class="card"><img src="images/guide_6.png" onclick="openImage(this)"></div>
+<div class="card"><img src="images/guide_7.png" onclick="openImage(this)"></div>
+<div class="card"><img src="images/guide_8.png" onclick="openImage(this)"></div>
 </div>
 
 <div class="quiz" id="quiz">
@@ -202,7 +194,6 @@ document.getElementById("result").innerHTML="Твой результат: "+scor
 
 <p id="result"></p>
 
-
 </div>
 
 </div>
@@ -212,10 +203,8 @@ document.getElementById("result").innerHTML="Твой результат: "+scor
 <p>Тема: Киберугрозы в интернете</p>
 <p>2026</p>
 </footer>
-  
+
 <script>
-function checkTest(){
-  
 function openImage(img){
 let modal = document.getElementById("imageModal");
 let modalImg = document.getElementById("modalImg");
@@ -228,6 +217,7 @@ function closeImage(){
 document.getElementById("imageModal").style.display = "none";
 }
 
+function checkTest(){
 let score = 0;
 
 let q1 = document.querySelector('input[name="q1"]:checked');
@@ -252,11 +242,7 @@ message = "Стоит повторить правила кибербезопас
 
 document.getElementById("result").innerText =
 "Твой результат: " + score + "/3. " + message;
-
-document.getElementById("result").style.opacity = "1";
 }
-
-
 </script>
   
 <div id="imageModal" class="modal" onclick="closeImage()">
